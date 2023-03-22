@@ -16,4 +16,8 @@ export default class CarODM extends ODM<ICar> {
     const modelName = 'cars';
     super(schema, modelName);
   }
+
+  public async create(car: ICar): Promise<ICar> {
+    return this.model.create(car);
+  }
 }
