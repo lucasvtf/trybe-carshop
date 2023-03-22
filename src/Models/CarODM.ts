@@ -18,6 +18,7 @@ export default class CarODM extends ODM<ICar> {
   }
 
   public async create(car: ICar): Promise<ICar> {
-    return this.model.create(car);
+    const newCar = await this.model.create({ ...car });
+    return newCar;
   }
 }
