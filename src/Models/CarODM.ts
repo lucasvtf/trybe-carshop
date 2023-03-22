@@ -1,5 +1,6 @@
-import { Schema } from 'mongoose';
+import { isValidObjectId, Schema } from 'mongoose';
 import ICar from '../Interfaces/ICar';
+import ApiErrors from '../Middlewares/apiErros';
 import ODM from './ODM';
 
 export default class CarODM extends ODM<ICar> {
@@ -20,5 +21,16 @@ export default class CarODM extends ODM<ICar> {
   public async create(car: ICar): Promise<ICar> {
     const newCar = await this.model.create({ ...car });
     return newCar;
+  }
+
+  public async getAll(): Promise<ICar[]> {
+    const cars = await this.model.find();
+    return cars;
+  }
+
+  public async getById(carId: string): Promise<ICar | null> {
+    if (!isValidObjectId(carId)) throw new ApiErrors('Invalid mongo id', 422);
+    const car = await this.model.findById(carId);
+    return car;
   }
 }
