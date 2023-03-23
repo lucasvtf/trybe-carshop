@@ -1,7 +1,7 @@
 import { isValidObjectId, Schema } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import ApiErrors from '../Middlewares/apiErros';
-import ODM from './ODM';
+import ODM from './AbstractODM';
 
 export default class CarODM extends ODM<ICar> {
   constructor() {
