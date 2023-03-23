@@ -31,7 +31,7 @@ export default class CarService {
     return this.carMap(car);
   }
 
-  public async update(carId:string, carUpdate: ICar) {
+  public async update(carId:string, carUpdate: ICar): Promise<Car | null> {
     const car = await this.model.update(carId, carUpdate);
     if (!car) throw new ApiErrors('Car not found', 404);
     return this.carMap(car);
