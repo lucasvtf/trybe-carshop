@@ -30,4 +30,10 @@ export default class CarService {
     if (!car) throw new ApiErrors('Car not found', 404);
     return this.carMap(car);
   }
+
+  public async update(carId:string, carUpdate: ICar) {
+    const car = await this.model.update(carId, carUpdate);
+    if (!car) throw new ApiErrors('Car not found', 404);
+    return this.carMap(car);
+  }
 }   
