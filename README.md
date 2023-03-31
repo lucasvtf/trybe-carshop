@@ -6,7 +6,8 @@ Para este projeto, eu apliquei os princípios de Programação Orientada a Objet
 ## Técnologias usadas
 
 Back-end:
-> Desenvolvido usando: NodeJS, ExpressJS, MongoDB, Mongoose e Docker.
+
+> Desenvolvido usando: NodeJS, ExpressJS, MongoDB, Mongoose, Mocha, Chai, Sinon e Docker.
 
 
 ## Instalando Dependências
@@ -34,5 +35,5 @@ npm install
 * Para rodar todos os testes:
 
   ```
-    npm test
+    npm run test:mocha
   ```
